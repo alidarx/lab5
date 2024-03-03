@@ -1,0 +1,61 @@
+Match a string that has an 'a' followed by zero or more 'b''s:
+
+import re
+
+def match_ab(string):
+    return re.fullmatch("ab*", string) is not None
+
+------------------------------------------------------------------
+
+Match a string that has an 'a' followed by two to three 'b's:
+
+def match_abb(string):
+    return re.fullmatch("ab{2,3}", string) is not None
+----------------------------------------------------------------
+Find sequences of lowercase letters joined with an underscore:
+
+def find_lowercase_sequences(string):
+    return re.findall("[a-z]+_[a-z]+", string)
+--------------------------------------------------------------------
+Find the sequences of one uppercase letter followed by lowercase letters:
+
+def find_uppercase_sequences(string):
+    return re.findall("[A-Z][a-z]+", string)
+-----------------------------------------------------------------
+Match a string that has an 'a' followed by anything, ending in 'b':
+
+def match_a_any_b(string):
+    return re.fullmatch("a.*b", string) is not None
+---------------------------------------------------------------
+Replace all occurrences of space, comma, or dot with a colon:
+
+def replace_with_colon(string):
+    return re.sub("[ ,.]", ":", string)
+---------------------------------------------------------------------
+Convert snake case string to camel case string:
+
+def snake_to_camel(string):
+    components = string.split('_')
+    return components[0] + ''.join(x.title() for x in components[1:])
+---------------------------------------------------------------------
+
+Split a string at uppercase letters:
+
+def split_at_uppercase(string):
+    return re.findall('[A-Z][^A-Z]*', string)
+------------------------------------------------------------------------
+
+Insert spaces between words starting with capital letters:
+
+def insert_spaces(string):
+    return re.sub(r"(\B[A-Z])", r" \1", string)
+---------------------------------------------------------------
+
+Convert a given camel case string to snake case:
+
+def camel_to_snake(string):
+    return re.sub(r'(?<!^)(?=[A-Z])', '_', string).lower()
+-----------------------------------------------------------------------
+
+
+    
